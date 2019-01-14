@@ -35,6 +35,10 @@ import com.google.android.gms.tasks.Task;
 
 public class LocationAlertActivity extends AppCompatActivity implements OnMapReadyCallback {
 
+    /*
+     * This GeoFencing Google project links to anupa.sankaraa@gmail.com email address
+     * */
+
     private static final String TAG = LocationAlertActivity.class.getSimpleName();
 
     private static final int LOC_PERM_REQ_CODE = 1;
