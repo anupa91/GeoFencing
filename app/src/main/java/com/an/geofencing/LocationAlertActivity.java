@@ -39,7 +39,7 @@ public class LocationAlertActivity extends AppCompatActivity implements OnMapRea
 
     private static final int LOC_PERM_REQ_CODE = 1;
     //meters
-    private static final int GEOFENCE_RADIUS = 500;
+    private static final int GEOFENCE_RADIUS = 300;
     //in milli seconds
     private static final int GEOFENCE_EXPIRATION = 6000;
 

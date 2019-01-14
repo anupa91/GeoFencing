@@ -27,6 +27,7 @@ import java.util.Locale;
 public class LocationAlertIntentService extends IntentService {
 
     private static final String IDENTIFIER = "LocationAlertIS";
+    String GROUP_KEY_GEO_FENCING = "com.an.geofencing";
 
     public LocationAlertIntentService() {
         super(IDENTIFIER);
@@ -126,11 +127,11 @@ public class LocationAlertIntentService extends IntentService {
     private String getTransitionString(int transitionType) {
         switch (transitionType) {
             case Geofence.GEOFENCE_TRANSITION_ENTER:
-                return "location entered";
+                return "Entered to the Location";
             case Geofence.GEOFENCE_TRANSITION_EXIT:
-                return "location exited";
+                return "Exited from the Location";
             case Geofence.GEOFENCE_TRANSITION_DWELL:
-                return "dwell at location";
+                return "At the Location";
             default:
                 return "location transition";
         }
@@ -163,7 +164,8 @@ public class LocationAlertIntentService extends IntentService {
                             .setContentText(channel.getDescription())
                             .setStyle(new NotificationCompat.BigTextStyle()
                                     .bigText(channel.getDescription()))
-                            .setAutoCancel(true);
+                            .setAutoCancel(true)
+                            .setGroup(GROUP_KEY_GEO_FENCING);
 
             notificationManager.notify(0, builder.build());
 
@@ -176,9 +178,8 @@ public class LocationAlertIntentService extends IntentService {
                             .setContentText(description)
                             .setStyle(new NotificationCompat.BigTextStyle()
                                     .bigText(description))
-                            .setAutoCancel(true);
-
-            builder.setAutoCancel(true);
+                            .setAutoCancel(true)
+                            .setGroup(GROUP_KEY_GEO_FENCING);
 
             NotificationManager mNotificationManager =
                     (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
